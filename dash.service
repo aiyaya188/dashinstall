@@ -1,0 +1,16 @@
+[Unit]
+
+Description= dash 
+
+[Service]
+WorkingDirectory=/data/dash/dashcore-0.17.0/bin/
+User=root
+ExecStart= /data/dash/dashcore-0.17.0/bin/dashd -server=1 -rpcuser=8coin -rpcpassword=8coin54321 -txindex=1  -rpcport=50007 -rpcallowip=0.0.0.0/0 -port=50008 -rpcbind=0.0.0.0:50007 --datadir=/data/dash/data/ 
+
+Restart=always
+RestartSec=3s
+TimeoutStopSec=5
+LimitNOFILE=49152
+
+[Install]
+WantedBy=multi-user.target
